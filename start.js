@@ -1,11 +1,8 @@
 Error.stackTraceLimit = 30;
 
-const config = require('config');
 const respawn = require('respawn');
 
 const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-//const webpackConfig = require('./webpack.config.js');
 const webpackBackendConfig = require('./webpack.backend.config.js');
 
 //const PROXY_ASSETS = config.get('proxyAssets');
@@ -59,7 +56,7 @@ const STATS_OPTIONS = {
     chunkOrigins: false
 };
 
-var lastHash = null;
+let lastHash = null;
 function backendCompilerCallback(error, stats) {
     if (error) {
         lastHash = null;
@@ -78,7 +75,7 @@ function backendCompilerCallback(error, stats) {
 
 backendCompiler.plugin('compile', () => console.log('Building server...'));
 
-var monitor;
+let monitor;
 backendCompiler.plugin('done', () => {
     try {
         console.log('Restarting server...');
