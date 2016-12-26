@@ -22,7 +22,7 @@
     "release-major": "npm version major -m 'chore(*) major version'",
     "mocha": "mocha ./src/**/*-test.jsx",
     "karma": "karma start",
-    "test": "eslint ./src/ --ext .js,.jsx --config ./node_modules/arui-feather/.eslintrc"
+    "test": "eslint ./src/ --ext .js,.jsx --config ./.eslintrc"
   },
   "devDependencies": {
     "archiver": "^1.3.0",
@@ -41,7 +41,7 @@
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-jsx-a11y": "^2.0.0",
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
