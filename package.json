@@ -53,7 +53,6 @@
     "respawn": "^2.3.0",
     "typescript": "^2.0.0-beta",
     "url-loader": "^0.5.7",
-    "webpack": "^1.14.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-postcss-tools": "^1.1.1",
     "good-file": "^6.0.1",
@@ -89,6 +88,7 @@
     "request": "^2.79.0",
     "stream": "0.0.2",
     "superagent": "^1.8.3",
+    "webpack": "^1.14.0",
     "underscore": "^1.8.3",
     "uuid": "^2.0.3"
   }
