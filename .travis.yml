@@ -1,0 +1,22 @@
+sudo: required
+
+language: node_js
+node_js:
+  - "6"
+
+services:
+  - docker
+
+before_install:
+  - npm i
+  - npm run build
+  - npm run prepack-app
+  - npm run predocker-build
+  - npm run docker-build
+  - docker ps -a
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    npm run docker-login-heroku;
+    npm run docker-push-heroku;
+    fi

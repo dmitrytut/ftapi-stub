@@ -13,6 +13,8 @@
     "predocker-build": "npm run pack-app",
     "docker-build": "docker build -t ftapi-stub ./.docker",
     "docker-push": "docker push ufr-registry.moscow.alfaintra.net:5000/$npm_package_name:$npm_package_version",
+    "docker-login-heroku": "docker login -u=\"$DOCKER_USERNAME\" -p=\"$DOCKER_PASSWORD\" registry.heroku.com",
+    "docker-push-heroku": "docker push $npm_package_name:$npm_package_version",
     "release-prepatch": "npm version preptch -m 'chore(*) preptch version'",
     "release-prerelease": "npm version prerelease -m 'chore(*) prerelease version'",
     "release-patch": "npm version patch -m 'chore(*) patch version'",
