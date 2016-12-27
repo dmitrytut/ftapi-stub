@@ -28,7 +28,7 @@ after_success:
     npm run docker-tag;
     docker images -a;
     npm run docker-push;
-    cat "/home/travis/builds/evantahler/actionHero/npm-debug.log";
+    cat "/home/travis/build/dmitrytut/ftapi-stub/npm-debug.log";
     fi
 
 branches:
