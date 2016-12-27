@@ -1,15 +1,15 @@
 /* eslint no-console: ["error", { allow: ["log", "error"] }] */
 import 'babel-polyfill';
 
-import config from '../../config/config';
 import Hapi from 'hapi';
 import h2o2 from 'h2o2';
 import inert from 'inert';
+import config from '../../config/config';
 
-//import { LogLevel, hapiLogstashProcessor } from 'alfa-services/src/lib/hapi-logstash';
+// import { LogLevel, hapiLogstashProcessor } from 'alfa-services/src/lib/hapi-logstash';
 
-//import jwt, { JwtOptions } from './jwt-auth';
-//import jwt, { JwtOptions } from 'corporate-services/src/server/jwt-auth';
+// import jwt, { JwtOptions } from './jwt-auth';
+// import jwt, { JwtOptions } from 'corporate-services/src/server/jwt-auth';
 
 // import createServices from './services';
 import pluginProxyAssets from '../plugins/proxy-assets';
@@ -18,19 +18,19 @@ import echoApiPlugin from '../plugins/api/echo-plugin';
 import loggerTransport from '../plugins/api/logger-plugin';
 
 
-//import healthmonitor from './plugins/api/healthmonitor';
+// import healthmonitor from './plugins/api/healthmonitor';
 import logger from '../plugins/logger';
 
 let crumb = require('crumb');
 let RequestID = require('hapi-request-id');
 
-//config.useMocks && require('./mock/mock');
+// config.useMocks && require('./mock/mock');
 
 const PROXY_ASSETS = config.proxyAssets;
 const BASE_PATH = config.app.basePath;
 
 let server = new Hapi.Server();
-//let services = createServices(server);
+// let services = createServices(server);
 
 let plugins = [
     RequestID,
@@ -62,7 +62,6 @@ server.connection({
 });
 
 server.register(plugins, function (error) {
-
     // server.auth.strategy('default', 'remote-jwt', false, {
     //         serviceUrl: config.services.jwt,
     //         tokenCookie: config.auth.tokenCookie,
@@ -75,13 +74,13 @@ server.register(plugins, function (error) {
     //         logger: (server)
     //     });
     //
-     //server.auth.default('default');
+    // server.auth.default('default');
 
     if (error) {
         throw error;
     }
 
-    server.start(error => {
+    server.start((error) => {
         if (error) {
             console.error(`Server start failed: ${error.toString()}`);
             throw error;

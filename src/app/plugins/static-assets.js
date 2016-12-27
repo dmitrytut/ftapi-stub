@@ -1,8 +1,8 @@
 const path = require('path');
 
-export let register = function (server, options, next) {
+export const register = function (server, options, next) {
     let assetsPath = path.join(process.cwd(), '.build', 'assets');
-    let routePath = path.join('/', 'assets/{resource}')
+    let routePath = path.join('/', 'assets/{resource}');
 
     server.route({
         method: 'GET',

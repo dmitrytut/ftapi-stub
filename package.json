@@ -21,8 +21,7 @@
     "release-minor": "npm version minor -m 'chore(*) minor version'",
     "release-major": "npm version major -m 'chore(*) major version'",
     "mocha": "mocha ./src/**/*-test.jsx",
-    "karma": "karma start",
-    "test": "eslint ./src/ --ext .js,.jsx --config ./.eslintrc"
+    "karma": "karma start"
   },
   "devDependencies": {
     "archiver": "^1.3.0",
