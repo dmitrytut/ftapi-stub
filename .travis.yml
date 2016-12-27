@@ -27,7 +27,7 @@ after_success:
     npm run docker-build;
     npm run docker-tag;
     docker images -a;
-    docker push registry.heroku.com/ftapi_stub/web;
+    docker push registry.heroku.com/ftapi-stub/web;
     cat "/home/travis/build/dmitrytut/ftapi-stub/npm-debug.log";
     fi
 
