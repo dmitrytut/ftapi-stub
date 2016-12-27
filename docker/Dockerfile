@@ -1,5 +1,5 @@
 # Version: 0.0.1
-FROM node:6.9.1
+FROM node:6.9
 
 # add ssh keys
 RUN mkdir /root/.ssh

@@ -19,22 +19,13 @@ cache:
 install:
   - npm i
   - npm run build
-  - npm run prepack-app
-  - npm run predocker-build
 
 # To give access to your Heroku apps, you
 # need to set the HEROKU_API_KEY environment variable.
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./";
-    curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
-    apt-get update;
-    apt-get install heroku;
-    heroku plugins:install heroku-container-tools;
-    heroku plugins:install heroku-container-registry;
-    npm run prepack-app;
-    npm run predocker-build;
     npm run docker-build;
+    npm run docker-tag;
     npm run docker-push;
     fi
 
