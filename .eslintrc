@@ -6,7 +6,7 @@
       "jsx": true
     }
   },
-  "extends": "airbnb",
+ // "extends": "airbnb",
   "env": {
     "mocha": true
   },
@@ -35,8 +35,8 @@
     "prefer-arrow-callback": 0,
     "react/prefer-stateless-function": 0,
     "react/react-in-jsx-scope": 0,
-    "react/jsx-indent-props": [2, 4],
-    "react/jsx-boolean-value": ["error", "always"],
+   // "react/jsx-indent-props": [2, 4],
+   // "react/jsx-boolean-value": ["error", "always"],
     "valid-jsdoc": ["error", {
       "requireReturn": false,
       "requireReturnDescription": false

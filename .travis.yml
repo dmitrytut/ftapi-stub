@@ -7,16 +7,37 @@ node_js:
 services:
   - docker
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: ghGSbKHf5G52ko1ib8c0tnFXodre8Dw4LxOIbF57+R8Modg61rM6giCqZdzoH1LVw4lHXbM9CTXDeXpYFzc4riaGJQ04s1gBjOvKt86FKDGh2Z8Dxe06bmuMLheey4p0ITSfhVaz2jj5lRJag1f60WVWXmmWMzDY1p4zeCa8jqzZc2Td/2agKdN6jpey4SPhN+sLt88aRlR8Weh91rIZQK3V2STziIZ6ex8gkU6bRdGuXBYiQcylQOH/yPPeImIdk0Pk6rfKNk4TdkAGCZS4nPVyo704Zun4bEeIh3i0CcNlpvzlUHvDI1+VSUKfrdcFV9/RPt9+OVQsLOBd4Oyj5Ve2SseXXfXkao7Lld0H52UdhBK3oM4AuvEJdWQxMqX2B4m/qEu+aOhMHBteNgxGQbfEGAX09ryiTouf1tkFQzPRsdw9jCNpMSeWBIlTBq0EFsgSOqZI8YkdfCVtp47i46+uYySi2ZlL5KQSE6h4QloqODvpKzg7uQLbYFjZPm3GbELdNBi9lswDki9bwlhB7kIdK47z+mJfVvvNKeoPIvqUl8umRGheA1aJhiHgoTYYq/fuMayTo1/83YO7lExdscSeh/6jGjcNoT89Y3UveGwIxKCsaZkqAHqPDhzGTaeOQ5l0IJrIt206x/1U0degkKwawtDA31WJcHzeaSQWKgQ=
+
+cache:
+  directories:
+    - '.node_modules'
+
 install:
   - npm i
   - npm run build
   - npm run prepack-app
   - npm run predocker-build
-  - npm run docker-build
-  - docker ps -a
 
+# To give access to your Heroku apps, you
+# need to set the HEROKU_API_KEY environment variable.
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    npm run docker-login-heroku;
-    npm run docker-push-heroku;
+    add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./";
+    curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+    apt-get update;
+    apt-get install heroku;
+    heroku plugins:install heroku-container-tools;
+    heroku plugins:install heroku-container-registry;
+    npm run prepack-app;
+    npm run predocker-build;
+    npm run docker-build;
+    npm run docker-push;
     fi
+
+branches:
+  only:
+      - master

@@ -13,8 +13,10 @@ export let register = function (server, options, next) {
         // if(!request.auth.credentials.profileId){
         //     reply(handleError(null, 'Ошибка аутентификации. Пользователь не идентифицирован'));
         // } else {
-             try {
-                server.log(['info'], `echo /api/echo ip ${request.raw.req.connection.remoteAddress} echoParam ${request.params.echoParam }`);
+        try {
+            server.log(
+                ['info'],
+                `echo /api/echo ip ${request.raw.req.connection.remoteAddress} echoParam ${request.params.echoParam }`);
                 // let userData = new UserDataTypes.UserData({
                 //     id: request.auth.credentials.profileId
                 // });
@@ -30,11 +32,11 @@ export let register = function (server, options, next) {
                 // );
                 //
                 // let accounts = await getAccounts(request, apiConfig);
-                reply(request.params.echoParam);
-            } catch (e) {
-                console.log(e);
+            reply(request.params.echoParam);
+        } catch (e) {
+            console.log(e);
                 //reply(handleError(e));
-            }
+        }
        // }
     }
 

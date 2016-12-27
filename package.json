@@ -11,17 +11,19 @@
     "prepack-app": "mkdir .docker; sed 's/\"version\":.*/\"version\": \"0.0.0-template\",/g' package.json > ./.docker/tmp-package.json && cp -rf ./docker/* ./.docker/",
     "pack-app": "node pack-app",
     "predocker-build": "npm run pack-app",
-    "docker-build": "docker build -t ftapi-stub ./.docker",
-    "docker-push": "docker push ufr-registry.moscow.alfaintra.net:5000/$npm_package_name:$npm_package_version",
+    "docker-fake": "npm $npm_package_name:$npm_package_version",
+    "docker-build": "docker build -t $npm_package_name:$npm_package_version ./.docker",
+    "docker-push": "docker push registry.heroku.com/$npm_package_name:$npm_package_version/web",
     "docker-login-heroku": "docker login -u=\"$DOCKER_USERNAME\" -p=\"$DOCKER_PASSWORD\" registry.heroku.com",
-    "docker-push-heroku": "docker push $npm_package_name:$npm_package_version",
+    "docker-push-heroku": "docker push registry.heroku.com/$npm_package_name/web",
     "release-prepatch": "npm version preptch -m 'chore(*) preptch version'",
     "release-prerelease": "npm version prerelease -m 'chore(*) prerelease version'",
     "release-patch": "npm version patch -m 'chore(*) patch version'",
     "release-minor": "npm version minor -m 'chore(*) minor version'",
     "release-major": "npm version major -m 'chore(*) major version'",
     "mocha": "mocha ./src/**/*-test.jsx",
-    "karma": "karma start"
+    "karma": "karma start",
+    "test": "eslint ./src/ --ext .js,.jsx --config ./.eslintrc"
   },
   "devDependencies": {
     "archiver": "^1.3.0",

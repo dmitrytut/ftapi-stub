@@ -19,24 +19,24 @@ const options = {
 
     // if(config.loging.logstash.enabled) {
     // 	options.reporters = Object.assign(options.reporters, {
-	 //    	logstashReporter: [{
-	 //            module: 'good-squeeze',
-	 //            name: 'Squeeze',
-	 //            args: [{ log: '*'}]
-	 //            },
-	 //            {
-	 //                module: 'good-logstash-tcp',
-	 //                args: [{
-	 //                    processor: hapiLogstashProcessor,
-	 //                    disabled: !config.loging.logstash.enabled,
-	 //                    meta: config.loging.logstash.meta,
-	 //                    tlsOptions: {
-	 //                        host: config.loging.logstash.host,
-	 //                        port: config.loging.logstash.port
-	 //                    }
-	 //                }]
-	 //            }]
-	 //        }
+     //    	logstashReporter: [{
+     //            module: 'good-squeeze',
+     //            name: 'Squeeze',
+     //            args: [{ log: '*'}]
+     //            },
+     //            {
+     //                module: 'good-logstash-tcp',
+     //                args: [{
+     //                    processor: hapiLogstashProcessor,
+     //                    disabled: !config.loging.logstash.enabled,
+     //                    meta: config.loging.logstash.meta,
+     //                    tlsOptions: {
+     //                        host: config.loging.logstash.host,
+     //                        port: config.loging.logstash.port
+     //                    }
+     //                }]
+     //            }]
+     //        }
     //     );
     // }
 
