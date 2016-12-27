@@ -7,7 +7,7 @@ module.exports = {
     demoNotification: true,
     useMocks,
     server: {
-        port: 8080
+        port: process.env.PORT || 8080
     },
     app: {
         basePath: 'ftapi-stub'
