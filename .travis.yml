@@ -27,6 +27,9 @@ after_success:
     npm run docker-build;
     npm run docker-tag;
     docker images -a;
+    # Travis doesn't understand $npm_package_name var in docker push command.
+    # For now just run it with predefined package name.
+    # FIXME: Fix to run npm run docker-push.
     docker push registry.heroku.com/ftapi-stub/web;
     cat "/home/travis/build/dmitrytut/ftapi-stub/npm-debug.log";
     fi
