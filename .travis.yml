@@ -26,12 +26,10 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     npm run docker-build;
     npm run docker-tag;
+    docker images -a;
     npm run docker-push;
+    cat "/home/travis/builds/evantahler/actionHero/npm-debug.log";
     fi
-
-after_failure:
-  - docker images -a
-  - cat "/home/travis/builds/evantahler/actionHero/npm-debug.log"
 
 branches:
   only:
