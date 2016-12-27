@@ -29,6 +29,10 @@ after_success:
     npm run docker-push;
     fi
 
+after_failure:
+  - docker images -a
+  - cat "/home/travis/builds/evantahler/actionHero/npm-debug.log"
+
 branches:
   only:
       - master
