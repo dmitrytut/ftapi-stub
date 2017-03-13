@@ -25,14 +25,6 @@ Build docker:
 Push image:
 `npm run docker-push`
 
-Запустить контейнер
--------------------
-/////// `docker run -d -p 8080:8080 --name ufr-stmt-frontend ufr-test.moscow.alfaintra.net:5000/ufr-stmt-frontend:0.0.10`
-
-Развернуть на dev (перейти в директорию ../ufr-stmt-scripts)
-------------------------------------------------------------
-/////// `ansible-playbook -i development --tags ufr-stmt-frontend play-mesos.yml`
-
 CI / CD на GitHub/TravisCI/Heroku
 -------------------------------------
 ### Настройка GitHub
